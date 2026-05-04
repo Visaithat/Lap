@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="lo" data-lang="lo">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LAP Insurance · Lanexang Assurance</title>
+
+<link rel="icon" type="image/png" href="/public/img/lap-logo.png" />
+<link rel="apple-touch-icon" href="/public/img/lap-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Lao:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Map design tokens to Tailwind utilities (avoid raw hex in markup)
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          lap: {
+            'primary-900': '#014C75',
+            'primary-700': '#0290DA',
+            'primary-500': '#36A9E1',
+            'primary-50':  '#E6F4FC',
+            'accent-500':  '#FFC20F',
+            'accent-600':  '#E0A800',
+            'accent-50':   '#FFF7DB',
+            'danger-600':  '#DC2626',
+            'ink-900':     '#0F172A',
+            'ink-700':     '#1E293B',
+            'ink-600':     '#475569',
+            'ink-400':     '#94A3B8',
+            'surface-0':   '#FFFFFF',
+            'surface-50':  '#FFFFFF',
+            'border':      '#E2E8F0',
+          },
+        },
+        fontFamily: {
+          sans: ['Inter', 'Noto Sans Lao', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        boxShadow: {
+          'lap-rest':  '0 4px 20px -4px rgba(2,144,218,0.12)',
+          'lap-hover': '0 10px 30px -8px rgba(2,144,218,0.18)',
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="stylesheet" href="assets/css/tokens.css" />
+
+<!-- Lucide icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- React (for Tweaks panel only) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-lap-surface-50 text-lap-ink-900">
+
+<!-- ================== HEADER ================== -->
+<header class="lap-header">
+  <div class="lap-container flex items-center gap-4 h-16 md:h-20">
+    <a href="index.html" class="flex items-center gap-2 mr-4 shrink-0" aria-label="LAP Insurance home">
+      <img src="/public/img/lap-logo.png" alt="Lanexang Assurance logo" class="w-10 h-10" />
+      <span class="hidden sm:inline font-bold text-lap-primary-900 text-base leading-tight">
+        Lanexang<br /><span class="text-xs font-medium text-lap-ink-600">Assurance</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-1 ml-2" aria-label="Primary">
+      <div class="relative group">
+        <button class="lap-btn-ghost lap-btn px-3 py-2 inline-flex items-center gap-1" data-lo="ຜະລິດຕະພັນ" data-en="Products">ຜະລິດຕະພັນ</button>
+        <div class="absolute top-full left-0 pt-2 w-72 invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
+          <div class="bg-white border border-lap-border rounded-2xl shadow-lap-hover p-2">
+            <a href="products/eco.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-lap-primary-50">
+              <span class="w-8 h-8 rounded-lg bg-lap-primary-50 text-lap-primary-700 inline-flex items-center justify-center"><i data-lucide="car" class="w-4 h-4"></i></span>
+              <span><span class="block font-semibold text-sm text-lap-ink-900" data-lo="ປະກັນໄພລົດ" data-en="Vehicle Insurance">ປະກັນໄພລົດ</span><span class="text-xs text-lap-ink-600" data-lo="Eco / ຍານພາຫະນະ" data-en="Eco / vehicle">Eco / ຍານພາຫະນະ</span></span>
+            </a>
+            <a href="products/loan.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-lap-primary-50">
+              <span class="w-8 h-8 rounded-lg bg-lap-primary-50 text-lap-primary-700 inline-flex items-center justify-center"><i data-lucide="banknote" class="w-4 h-4"></i></span>
+              <span><span class="block font-semibold text-sm text-lap-ink-900" data-lo="ປະກັນໄພເງິນກູ້" data-en="Loan Insurance">ປະກັນໄພເງິນກູ້</span><span class="text-xs text-lap-ink-600" data-lo="ປົກປ້ອງເງິນກູ້ຂອງທ່ານ" data-en="Protect your loan">ປົກປ້ອງເງິນກູ້ຂອງທ່ານ</span></span>
+            </a>
+            <a href="products/third-party.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-lap-primary-50">
+              <span class="w-8 h-8 rounded-lg bg-lap-primary-50 text-lap-primary-700 inline-flex items-center justify-center"><i data-lucide="shield-check" class="w-4 h-4"></i></span>
+              <span><span class="block font-semibold text-sm text-lap-ink-900" data-lo="ປະກັນໄພບຸກຄົນທີ່ສາມ" data-en="Third-Party">ປະກັນໄພບຸກຄົນທີ່ສາມ</span><span class="text-xs text-lap-ink-600" data-lo="ສຳລັບຍານພາຫະນະ" data-en="For vehicles">ສຳລັບຍານພາຫະນະ</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="relative group">
+        <button class="lap-btn-ghost lap-btn px-3 py-2 inline-flex items-center gap-1" data-lo="ກ່ຽວກັບພວກເຮົາ" data-en="About">ກ່ຽວກັບພວກເຮົາ</button>
+        <div class="absolute top-full left-0 pt-2 w-64 invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
+          <div class="bg-white border border-lap-border rounded-2xl shadow-lap-hover p-2">
+            <a href="about/board.html" class="block px-3 py-2 rounded-lg hover:bg-lap-primary-50 text-sm font-medium" data-lo="ສະພາບໍລິຫານ" data-en="Board of Directors">ສະພາບໍລິຫານ</a>
+            <a href="about/management.html" class="block px-3 py-2 rounded-lg hover:bg-lap-primary-50 text-sm font-medium" data-lo="ຄະນະຜູ້ບໍລິຫານ" data-en="Executive Management">ຄະນະຜູ້ບໍລິຫານ</a>
+            <a href="about/history.html" class="block px-3 py-2 rounded-lg hover:bg-lap-primary-50 text-sm font-medium" data-lo="ປະຫວັດບໍລິສັດ" data-en="Company History">ປະຫວັດບໍລິສັດ</a>
+            <a href="about/org-chart.html" class="block px-3 py-2 rounded-lg hover:bg-lap-primary-50 text-sm font-medium" data-lo="ໂຄງສ້າງອົງກອນ" data-en="Organization Chart">ໂຄງສ້າງອົງກອນ</a>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="lap-btn-ghost lap-btn px-3 py-2" data-lo="ຕິດຕໍ່" data-en="Contact">ຕິດຕໍ່</a>
+      <a href="downloads.html" class="lap-btn-ghost lap-btn px-3 py-2" data-lo="ດາວໂຫລດ" data-en="Downloads">ດາວໂຫລດ</a>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2 md:gap-3">
+      <a href="tel:1819" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-bold text-lap-danger-600 px-3 py-1.5 rounded-full border border-lap-danger-600/20 bg-lap-danger-600/5 hover:bg-lap-danger-600/10 transition-colors" aria-label="Emergency hotline 1819">
+        <i data-lucide="phone" class="w-4 h-4"></i>
+        <span class="tabular-nums">1819</span>
+      </a>
+      <div class="lap-lang" role="group" aria-label="Language">
+        <button data-lang-btn="lo" aria-pressed="true">ລາວ</button>
+        <button data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="login.html" class="hidden md:inline-flex lap-btn lap-btn-secondary !py-2 !px-4 text-sm" data-lo="ເຂົ້າສູ່ລະບົບ" data-en="Login">ເຂົ້າສູ່ລະບົບ</a>
+      <a href="login.html" class="md:hidden inline-flex w-10 h-10 items-center justify-center rounded-full border border-lap-border" aria-label="Login">
+        <i data-lucide="user" class="w-5 h-5 text-lap-ink-700"></i>
+      </a>
+      <button data-mobile-nav-trigger aria-expanded="false" aria-controls="mobile-nav" class="lg:hidden inline-flex w-10 h-10 items-center justify-center rounded-full border border-lap-border" aria-label="Open menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<div data-mobile-nav-overlay class="fixed inset-0 bg-lap-ink-900/40 backdrop-blur-sm z-50 opacity-0 invisible transition-opacity duration-200 [&.is-open]:opacity-100 [&.is-open]:visible lg:hidden"></div>
+<aside id="mobile-nav" data-mobile-nav class="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white z-50 translate-x-full transition-transform duration-200 ease-out [&.is-open]:translate-x-0 lg:hidden overflow-y-auto" aria-label="Mobile menu">
+  <div class="flex items-center justify-between p-5 border-b border-lap-border">
+    <span class="font-bold text-lap-primary-900" data-lo="ເມນູ" data-en="Menu">ເມນູ</span>
+    <button data-mobile-nav-close class="w-10 h-10 rounded-full inline-flex items-center justify-center hover:bg-lap-surface-50" aria-label="Close menu"><i data-lucide="x" class="w-5 h-5"></i></button>
+  </div>
+  <nav class="p-3 flex flex-col">
+    <span class="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-lap-ink-400" data-lo="ຜະລິດຕະພັນ" data-en="Products">ຜະລິດຕະພັນ</span>
+    <a href="products/eco.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ປະກັນໄພລົດ" data-en="Vehicle Insurance">ປະກັນໄພລົດ</a>
+    <a href="products/loan.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ປະກັນໄພເງິນກູ້" data-en="Loan Insurance">ປະກັນໄພເງິນກູ້</a>
+    <a href="products/third-party.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ປະກັນໄພບຸກຄົນທີ່ສາມ" data-en="Third-Party">ປະກັນໄພບຸກຄົນທີ່ສາມ</a>
+
+    <span class="px-3 pt-5 pb-1 text-xs font-semibold uppercase tracking-wider text-lap-ink-400" data-lo="ກ່ຽວກັບ" data-en="About">ກ່ຽວກັບ</span>
+    <a href="about/board.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ສະພາບໍລິຫານ" data-en="Board">ສະພາບໍລິຫານ</a>
+    <a href="about/management.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ຄະນະຜູ້ບໍລິຫານ" data-en="Management">ຄະນະຜູ້ບໍລິຫານ</a>
+    <a href="about/history.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ປະຫວັດ" data-en="History">ປະຫວັດ</a>
+    <a href="about/org-chart.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ໂຄງສ້າງອົງກອນ" data-en="Org Chart">ໂຄງສ້າງອົງກອນ</a>
+
+    <span class="px-3 pt-5 pb-1 text-xs font-semibold uppercase tracking-wider text-lap-ink-400" data-lo="ອື່ນໆ" data-en="More">ອື່ນໆ</span>
+    <a href="contact.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ຕິດຕໍ່" data-en="Contact">ຕິດຕໍ່</a>
+    <a href="downloads.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ດາວໂຫລດ" data-en="Downloads">ດາວໂຫລດ</a>
+    <a href="login.html" class="block px-3 py-2.5 rounded-xl hover:bg-lap-primary-50 font-medium" data-lo="ເຂົ້າສູ່ລະບົບ" data-en="Login">ເຂົ້າສູ່ລະບົບ</a>
+  </nav>
+</aside>
+
+<!-- ================== HERO ================== -->
+<section class="relative pt-10 md:pt-16 pb-12 md:pb-20 overflow-hidden">
+  <!-- Soft background ornaments -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-lap-primary-50 blur-3xl opacity-70"></div>
+    <div class="absolute top-40 -left-24 w-[320px] h-[320px] rounded-full bg-lap-accent-50 blur-3xl opacity-60"></div>
+  </div>
+
+  <div class="lap-container">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <!-- Hero text -->
+      <div class="lg:col-span-7" data-hero-text>
+        <span class="lap-eyebrow" data-lo="ປະກັນໄພຄຸນນະພາບສາກົນ · ຕັ້ງແຕ່ 2010" data-en="Quality insurance · since 2010">ປະກັນໄພຄຸນນະພາບສາກົນ · ຕັ້ງແຕ່ 2010</span>
+        <h1 class="lap-display mt-5 mb-5">
+          <span class="block" data-lo="ປົກປ້ອງສິ່ງສຳຄັນ" data-en="Protect what matters">ປົກປ້ອງສິ່ງສຳຄັນ</span>
+          <span class="block text-lap-primary-700" data-lo="ໃນຊີວິດທ່ານ" data-en="most in your life">ໃນຊີວິດທ່ານ</span>
+        </h1>
+        <p class="text-lg text-lap-ink-600 max-w-prose mb-8" data-lo="ໃຫ້ບໍລິການປະກັນໄພຄົບວົງຈອນຕັ້ງແຕ່ ປະກັນໄພລົດ ປະກັນໄພເງິນກູ້ ຈົນເຖິງປະກັນໄພບຸກຄົນທີ່ສາມ — ດ້ວຍຄວາມໄວ້ວາງໃຈຂອງລູກຄ້າທົ່ວ ສປປ ລາວ." data-en="Comprehensive insurance for vehicles, loans, and beyond — trusted by customers across the Lao PDR.">ໃຫ້ບໍລິການປະກັນໄພຄົບວົງຈອນຕັ້ງແຕ່ ປະກັນໄພລົດ ປະກັນໄພເງິນກູ້ ຈົນເຖິງປະກັນໄພບຸກຄົນທີ່ສາມ — ດ້ວຍຄວາມໄວ້ວາງໃຈຂອງລູກຄ້າທົ່ວ ສປປ ລາວ.</p>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="downloads.html" class="lap-btn lap-btn-primary"><span data-lo="ຮັບໃບສະເໜີລາຄາ" data-en="Get a Quote">ຮັບໃບສະເໜີລາຄາ</span> <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <a href="#products" class="lap-btn lap-btn-secondary" data-lo="ເບິ່ງຜະລິດຕະພັນ" data-en="Browse Products">ເບິ່ງຜະລິດຕະພັນ</a>
+        </div>
+
+        <!-- Trust strip -->
+        <ul class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 max-w-2xl">
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="shield-check" class="w-5 h-5 text-lap-primary-700 mt-0.5 shrink-0"></i>
+            <div class="text-sm leading-snug">
+              <span class="block font-bold text-lap-ink-900 tabular-nums">15+</span>
+              <span class="text-lap-ink-600" data-lo="ປີໃນຕະຫຼາດ" data-en="Years in market">ປີໃນຕະຫຼາດ</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="users" class="w-5 h-5 text-lap-primary-700 mt-0.5 shrink-0"></i>
+            <div class="text-sm leading-snug">
+              <span class="block font-bold text-lap-ink-900" data-lo="50,000+" data-en="50,000+">50,000+</span>
+              <span class="text-lap-ink-600" data-lo="ລູກຄ້າ" data-en="Customers">ລູກຄ້າ</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="clock" class="w-5 h-5 text-lap-primary-700 mt-0.5 shrink-0"></i>
+            <div class="text-sm leading-snug">
+              <span class="block font-bold text-lap-ink-900">24 / 7</span>
+              <span class="text-lap-ink-600" data-lo="ບໍລິການ" data-en="Service">ບໍລິການ</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="landmark" class="w-5 h-5 text-lap-primary-700 mt-0.5 shrink-0"></i>
+            <div class="text-sm leading-snug">
+              <span class="block font-bold text-lap-ink-900" data-lo="ກຳກັບໂດຍ" data-en="Regulated by">ກຳກັບໂດຍ</span>
+              <span class="text-lap-ink-600" data-lo="ທະນາຄານແຫ່ງ ສປປ ລາວ" data-en="Bank of the Lao PDR">ທະນາຄານແຫ່ງ ສປປ ລາວ</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hero campaign carousel -->
+      <div class="lg:col-span-5" data-hero-art>
+        <div class="relative aspect-[4/5] rounded-[28px] overflow-hidden bg-lap-primary-50 shadow-lap-rest" data-hero-carousel>
+          <div class="absolute inset-0" data-hero-track>
+            <img src="assets/img/hero-1.png" alt="LAP campaign — Construction insurance" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" data-hero-slide />
+            <img src="assets/img/hero-2.png" alt="LAP campaign — Family health" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" data-hero-slide />
+            <img src="assets/img/hero-3.png" alt="LAP campaign — Travel insurance" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" data-hero-slide />
+            <img src="assets/img/hero-4.png" alt="LAP campaign — Property insurance" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" data-hero-slide />
+            <img src="assets/img/hero-5.png" alt="LAP campaign — All products" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" data-hero-slide />
+            <img src="assets/img/hero-4.png" alt="LAP campaign — Senior care" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" data-hero-slide />
+          </div>
+
+          <!-- Subtle gradient at bottom for chip readability -->
+          <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+
+          <!-- Prev / next -->
+          <button data-hero-prev aria-label="Previous slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-lap-primary-700 inline-flex items-center justify-center shadow-lap-rest backdrop-blur-sm transition-colors">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button data-hero-next aria-label="Next slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-lap-primary-700 inline-flex items-center justify-center shadow-lap-rest backdrop-blur-sm transition-colors">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Dots -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5" data-hero-dots>
+            <button aria-label="Slide 1" class="w-6 h-1.5 rounded-full bg-white transition-all" data-hero-dot></button>
+            <button aria-label="Slide 2" class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" data-hero-dot></button>
+            <button aria-label="Slide 3" class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" data-hero-dot></button>
+            <button aria-label="Slide 4" class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" data-hero-dot></button>
+            <button aria-label="Slide 5" class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" data-hero-dot></button>
+            <button aria-label="Slide 6" class="w-1.5 h-1.5 rounded-full bg-white/60 transition-all" data-hero-dot></button>
+          </div>
+
+          <!-- Floating hotline chip -->
+          <div class="absolute top-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2.5 shadow-lap-rest border border-white flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-lap-danger-600 text-white inline-flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4"></i></span>
+            <div class="leading-tight">
+              <span class="block text-[10px] font-semibold uppercase tracking-wider text-lap-ink-400" data-lo="ສາຍດ່ວນ" data-en="Hotline">ສາຍດ່ວນ</span>
+              <a href="tel:1819" class="block text-base font-bold text-lap-ink-900 tabular-nums">1819</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== PRODUCTS GRID ================== -->
+<section id="products" class="lap-section bg-white">
+  <div class="lap-container">
+    <div class="flex items-end justify-between gap-6 mb-10 md:mb-14 flex-wrap">
+      <div>
+        <span class="lap-eyebrow" data-lo="ຜະລິດຕະພັນ" data-en="Products">ຜະລິດຕະພັນ</span>
+        <h2 class="lap-h1 mt-4" data-lo="ຜະລິດຕະພັນປະກັນໄພ" data-en="Insurance Products">ຜະລິດຕະພັນປະກັນໄພ</h2>
+        <p class="text-lap-ink-600 mt-3 max-w-prose" data-lo="ເລືອກຄວາມຄຸ້ມຄອງທີ່ເໝາະກັບຊີວິດ ຄອບຄົວ ຫຼື ທຸລະກິດຂອງທ່ານ." data-en="Choose the cover that fits your life, family, or business.">ເລືອກຄວາມຄຸ້ມຄອງທີ່ເໝາະກັບຊີວິດ ຄອບຄົວ ຫຼື ທຸລະກິດຂອງທ່ານ.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card template repeated -->
+      <a href="products/eco.html" class="lap-card lap-card-interactive p-6 group block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="car" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພລົດ" data-en="Vehicle Insurance">ປະກັນໄພລົດ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ປົກປ້ອງຍານພາຫະນະຂອງທ່ານຈາກອຸບັດເຫດ ຄ່າສ້ອມແປງ ແລະ ການລັກພາຕົວ." data-en="Cover your vehicle against accidents, repairs, and theft.">ປົກປ້ອງຍານພາຫະນະຂອງທ່ານຈາກອຸບັດເຫດ ຄ່າສ້ອມແປງ ແລະ ການລັກພາຕົວ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+
+      <a href="products/eco.html" class="lap-card lap-card-interactive p-6 block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="heart-pulse" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພສຸຂະພາບ" data-en="Health Insurance">ປະກັນໄພສຸຂະພາບ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ຄ່າຮັກສາໂຮງໝໍ ກວດສຸຂະພາບ ແລະ ຢາ — ດ້ວຍເຄືອຂ່າຍຄູ່ສັນຍາທົ່ວປະເທດ." data-en="Hospital, check-ups, and medication — through partner clinics nationwide.">ຄ່າຮັກສາໂຮງໝໍ ກວດສຸຂະພາບ ແລະ ຢາ — ດ້ວຍເຄືອຂ່າຍຄູ່ສັນຍາທົ່ວປະເທດ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+
+      <a href="products/eco.html" class="lap-card lap-card-interactive p-6 block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="plane" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພການເດີນທາງ" data-en="Travel Insurance">ປະກັນໄພການເດີນທາງ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ຄຸ້ມຄອງທ່ານໃນທຸກບ່ອນທີ່ທ່ານໄປ — ສຳພາລະ ການເຈັບປ່ວຍ ແລະ ການຍົກເລີກ." data-en="Cover wherever you go — luggage, illness, and trip cancellations.">ຄຸ້ມຄອງທ່ານໃນທຸກບ່ອນທີ່ທ່ານໄປ — ສຳພາລະ ການເຈັບປ່ວຍ ແລະ ການຍົກເລີກ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+
+      <a href="products/eco.html" class="lap-card lap-card-interactive p-6 block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="flame" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພອັກຄີໄພ" data-en="Fire Insurance">ປະກັນໄພອັກຄີໄພ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ປົກປ້ອງເຮືອນ ຮ້ານຄ້າ ແລະ ໂຮງງານຈາກໄຟໄໝ້ ແລະ ໄພທໍາມະຊາດ." data-en="Protect homes, shops, and factories from fire and natural disasters.">ປົກປ້ອງເຮືອນ ຮ້ານຄ້າ ແລະ ໂຮງງານຈາກໄຟໄໝ້ ແລະ ໄພທໍາມະຊາດ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+
+      <a href="products/eco.html" class="lap-card lap-card-interactive p-6 block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="hard-hat" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພການກໍ່ສ້າງ" data-en="Construction Insurance">ປະກັນໄພການກໍ່ສ້າງ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ຄຸ້ມຄອງໂຄງການກໍ່ສ້າງ ຄ່າແຮງງານ ແລະ ຄວາມຮັບຜິດຊອບຂອງເຈົ້າຂອງ." data-en="Cover construction projects, labour, and owner liability.">ຄຸ້ມຄອງໂຄງການກໍ່ສ້າງ ຄ່າແຮງງານ ແລະ ຄວາມຮັບຜິດຊອບຂອງເຈົ້າຂອງ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+
+      <a href="products/third-party.html" class="lap-card lap-card-interactive p-6 block">
+        <span class="inline-flex w-12 h-12 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-5"><i data-lucide="shield-check" class="w-6 h-6"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ປະກັນໄພບຸກຄົນທີ່ສາມ" data-en="Third-Party Insurance">ປະກັນໄພບຸກຄົນທີ່ສາມ</h3>
+        <p class="text-sm text-lap-ink-600 mb-5" data-lo="ຄ່າຮັບຜິດຊອບຕໍ່ບຸກຄົນທີ່ສາມ ສຳລັບເຈົ້າຂອງຍານພາຫະນະທຸກທ່ານ." data-en="Liability cover for third parties — required for vehicle owners.">ຄ່າຮັບຜິດຊອບຕໍ່ບຸກຄົນທີ່ສາມ ສຳລັບເຈົ້າຂອງຍານພາຫະນະທຸກທ່ານ.</p>
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-lap-primary-700"><span data-lo="ເບິ່ງລາຍລະອຽດ" data-en="See details">ເບິ່ງລາຍລະອຽດ</span> <span class="lap-arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================== WHY LAP ================== -->
+<section class="lap-section">
+  <div class="lap-container">
+    <div class="max-w-2xl mb-12">
+      <span class="lap-eyebrow" data-lo="ເຫດຜົນທີ່ເລືອກພວກເຮົາ" data-en="Why us">ເຫດຜົນທີ່ເລືອກພວກເຮົາ</span>
+      <h2 class="lap-h1 mt-4" data-lo="ເປັນຫຍັງຈຶ່ງເລືອກ LAP" data-en="Why choose LAP">ເປັນຫຍັງຈຶ່ງເລືອກ LAP</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+      <div class="relative">
+        <span class="inline-flex w-14 h-14 rounded-2xl bg-lap-primary-700 text-white items-center justify-center mb-5"><i data-lucide="shield-check" class="w-7 h-7"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ໄວ້ວາງໃຈໄດ້" data-en="Trustworthy">ໄວ້ວາງໃຈໄດ້</h3>
+        <p class="text-lap-ink-600 max-w-prose" data-lo="ບໍລິສັດທີ່ກຳກັບໂດຍ ທະນາຄານແຫ່ງ ສປປ ລາວ ກວ່າ 15 ປີ ດ້ວຍບັນທຶກການຈ່າຍຄ່າສິນທົດແທນທີ່ໝັ້ນຄົງ." data-en="Regulated by the Bank of the Lao PDR for 15+ years with a steady record of paying claims.">ບໍລິສັດທີ່ກຳກັບໂດຍ ທະນາຄານແຫ່ງ ສປປ ລາວ ກວ່າ 15 ປີ ດ້ວຍບັນທຶກການຈ່າຍຄ່າສິນທົດແທນທີ່ໝັ້ນຄົງ.</p>
+      </div>
+      <div>
+        <span class="inline-flex w-14 h-14 rounded-2xl bg-lap-primary-700 text-white items-center justify-center mb-5"><i data-lucide="zap" class="w-7 h-7"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ໄວວ່ອງ" data-en="Fast">ໄວວ່ອງ</h3>
+        <p class="text-lap-ink-600 max-w-prose" data-lo="ສະໜັບສະໜູນສາຍດ່ວນ 1819 ຕະຫລອດ 24 ຊົ່ວໂມງ — ແຈ້ງເຫດ ກວດສອບ ແລະ ຈ່າຍຄ່າສິນທົດແທນຢ່າງວ່ອງໄວ." data-en="1819 hotline answers 24/7 — quick reporting, assessment, and claim settlement.">ສະໜັບສະໜູນສາຍດ່ວນ 1819 ຕະຫລອດ 24 ຊົ່ວໂມງ — ແຈ້ງເຫດ ກວດສອບ ແລະ ຈ່າຍຄ່າສິນທົດແທນຢ່າງວ່ອງໄວ.</p>
+      </div>
+      <div>
+        <span class="inline-flex w-14 h-14 rounded-2xl bg-lap-primary-700 text-white items-center justify-center mb-5"><i data-lucide="map-pin" class="w-7 h-7"></i></span>
+        <h3 class="lap-h3 mb-2" data-lo="ບໍລິການທົ່ວປະເທດ" data-en="Nationwide reach">ບໍລິການທົ່ວປະເທດ</h3>
+        <p class="text-lap-ink-600 max-w-prose" data-lo="ມີຄູ່ສັນຍາທະນາຄານ ໂຮງໝໍ ແລະ ສູນບໍລິການລົດໃນທົ່ວ ສປປ ລາວ — ບ່ອນໃດທ່ານໄປ ພວກເຮົາໄປນຳ." data-en="Bank, hospital, and service-centre partners across the Lao PDR — wherever you go, we follow.">ມີຄູ່ສັນຍາທະນາຄານ ໂຮງໝໍ ແລະ ສູນບໍລິການລົດໃນທົ່ວ ສປປ ລາວ — ບ່ອນໃດທ່ານໄປ ພວກເຮົາໄປນຳ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== HOW IT WORKS ================== -->
+<section class="lap-section bg-white">
+  <div class="lap-container">
+    <div class="grid md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-4">
+        <span class="lap-eyebrow" data-lo="ວິທີສະໝັກ" data-en="How it works">ວິທີສະໝັກ</span>
+        <h2 class="lap-h1 mt-4" data-lo="ສາມຂັ້ນຕອນ ງ່າຍດາຍ" data-en="Three simple steps">ສາມຂັ້ນຕອນ ງ່າຍດາຍ</h2>
+        <p class="text-lap-ink-600 mt-3 max-w-prose" data-lo="ບໍ່ມີຄຳສັບກົດໝາຍຍາກໆ ບໍ່ມີການລໍຖ້າດົນ — ເລີ່ມຕົ້ນໃນວັນດຽວ." data-en="No legal jargon, no waiting — start the same day.">ບໍ່ມີຄຳສັບກົດໝາຍຍາກໆ ບໍ່ມີການລໍຖ້າດົນ — ເລີ່ມຕົ້ນໃນວັນດຽວ.</p>
+      </div>
+      <ol class="md:col-span-8 grid sm:grid-cols-3 gap-6 relative">
+        <!-- connector hairline -->
+        <div class="hidden sm:block absolute left-[6%] right-[6%] top-5 h-px bg-lap-border"></div>
+
+        <li class="relative">
+          <span class="relative inline-flex w-10 h-10 rounded-full bg-white border border-lap-border items-center justify-center font-mono text-sm font-semibold text-lap-primary-700">01</span>
+          <h3 class="lap-h3 mt-5 mb-1" data-lo="ເລືອກຜະລິດຕະພັນ" data-en="Choose a product">ເລືອກຜະລິດຕະພັນ</h3>
+          <p class="text-sm text-lap-ink-600" data-lo="ເລືອກຄວາມຄຸ້ມຄອງທີ່ເໝາະກັບຄວາມຕ້ອງການຂອງທ່ານ." data-en="Pick the cover that fits your needs.">ເລືອກຄວາມຄຸ້ມຄອງທີ່ເໝາະກັບຄວາມຕ້ອງການຂອງທ່ານ.</p>
+        </li>
+        <li class="relative">
+          <span class="relative inline-flex w-10 h-10 rounded-full bg-white border border-lap-border items-center justify-center font-mono text-sm font-semibold text-lap-primary-700">02</span>
+          <h3 class="lap-h3 mt-5 mb-1" data-lo="ກຣອກແບບຟອມ" data-en="Submit a form">ກຣອກແບບຟອມ</h3>
+          <p class="text-sm text-lap-ink-600" data-lo="ດາວໂຫລດແບບຟອມ ຫຼື ກຣອກໂດຍຕົວແທນຂອງພວກເຮົາ." data-en="Download the form or fill it in with our agent.">ດາວໂຫລດແບບຟອມ ຫຼື ກຣອກໂດຍຕົວແທນຂອງພວກເຮົາ.</p>
+        </li>
+        <li class="relative">
+          <span class="relative inline-flex w-10 h-10 rounded-full bg-lap-primary-700 text-white items-center justify-center font-mono text-sm font-semibold">03</span>
+          <h3 class="lap-h3 mt-5 mb-1" data-lo="ຮັບການຄຸ້ມຄອງ" data-en="Get covered">ຮັບການຄຸ້ມຄອງ</h3>
+          <p class="text-sm text-lap-ink-600" data-lo="ກົມທະບຽນຮັບປະກັນພາຍໃນ 24 ຊົ່ວໂມງ." data-en="Policy issued within 24 hours.">ກົມທະບຽນຮັບປະກັນພາຍໃນ 24 ຊົ່ວໂມງ.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================== TESTIMONIALS ================== -->
+<section class="lap-section">
+  <div class="lap-container">
+    <div class="flex items-end justify-between gap-6 mb-10 flex-wrap">
+      <div>
+        <span class="lap-eyebrow" data-lo="ສຽງຈາກລູກຄ້າ" data-en="Customer voices">ສຽງຈາກລູກຄ້າ</span>
+        <h2 class="lap-h1 mt-4" data-lo="ລູກຄ້າເວົ້າຫຍັງ" data-en="What customers say">ລູກຄ້າເວົ້າຫຍັງ</h2>
+      </div>
+      <div class="flex items-center gap-2">
+        <button data-carousel-prev class="w-11 h-11 rounded-full border border-lap-border bg-white hover:bg-lap-primary-50 inline-flex items-center justify-center" aria-label="Previous"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>
+        <button data-carousel-next class="w-11 h-11 rounded-full border border-lap-border bg-white hover:bg-lap-primary-50 inline-flex items-center justify-center" aria-label="Next"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+
+    <div data-carousel class="relative overflow-hidden rounded-3xl" tabindex="0" aria-label="Customer testimonials">
+      <div data-carousel-track class="flex transition-transform duration-300 ease-out">
+        <article data-carousel-slide class="w-full shrink-0 px-1">
+          <div class="bg-white border border-lap-border rounded-3xl p-6 md:p-10 grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+            <div class="md:col-span-3">
+              <div class="aspect-square rounded-2xl bg-lap-primary-50 flex items-center justify-center text-3xl font-bold text-lap-primary-700">ສ</div>
+              <span class="lap-pill mt-3 inline-flex"><i data-lucide="badge-check" class="w-3.5 h-3.5"></i><span data-lo="[ຕົວຢ່າງ]" data-en="[placeholder]">[ຕົວຢ່າງ]</span></span>
+            </div>
+            <div class="md:col-span-9">
+              <i data-lucide="quote" class="w-8 h-8 text-lap-primary-500 mb-3"></i>
+              <p class="text-lg md:text-xl text-lap-ink-900 leading-relaxed mb-4" data-lo="“ແຈ້ງເຫດເວລາກາງຄືນ — ທີມງານມາຮອດໃນເວລາໜ້ອຍກວ່າຫນຶ່ງຊົ່ວໂມງ. ສະບາຍໃຈຫຼາຍ.”" data-en="“Reported an incident at midnight — the team arrived in under an hour. Real peace of mind.”">“ແຈ້ງເຫດເວລາກາງຄືນ — ທີມງານມາຮອດໃນເວລາໜ້ອຍກວ່າຫນຶ່ງຊົ່ວໂມງ. ສະບາຍໃຈຫຼາຍ.”</p>
+              <div>
+                <span class="block font-semibold text-lap-ink-900" data-lo="ນາງ ສີສຸພາ ກ." data-en="Mrs. Sisoupha K.">ນາງ ສີສຸພາ ກ.</span>
+                <span class="text-sm text-lap-ink-600" data-lo="ລູກຄ້າປະກັນໄພລົດ · ນະຄອນຫລວງວຽງຈັນ" data-en="Vehicle Insurance · Vientiane">ລູກຄ້າປະກັນໄພລົດ · ນະຄອນຫລວງວຽງຈັນ</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-carousel-slide class="w-full shrink-0 px-1">
+          <div class="bg-white border border-lap-border rounded-3xl p-6 md:p-10 grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+            <div class="md:col-span-3">
+              <div class="aspect-square rounded-2xl bg-lap-accent-50 flex items-center justify-center text-3xl font-bold text-lap-accent-600">ບ</div>
+              <span class="lap-pill mt-3 inline-flex"><i data-lucide="badge-check" class="w-3.5 h-3.5"></i><span data-lo="[ຕົວຢ່າງ]" data-en="[placeholder]">[ຕົວຢ່າງ]</span></span>
+            </div>
+            <div class="md:col-span-9">
+              <i data-lucide="quote" class="w-8 h-8 text-lap-primary-500 mb-3"></i>
+              <p class="text-lg md:text-xl text-lap-ink-900 leading-relaxed mb-4" data-lo="“ປະກັນໄພເງິນກູ້ຊ່ວຍຄອບຄົວຂອງຂ້ອຍຮັກສາເຮືອນຫຼັງຈາກພໍ່ເສຍຊີວິດ. ກົມທະບຽນຈ່າຍຄືນຄົບຖ້ວນ.”" data-en="“Loan insurance kept our family in our home after my father passed. The policy paid out in full.”">“ປະກັນໄພເງິນກູ້ຊ່ວຍຄອບຄົວຂອງຂ້ອຍຮັກສາເຮືອນຫຼັງຈາກພໍ່ເສຍຊີວິດ. ກົມທະບຽນຈ່າຍຄືນຄົບຖ້ວນ.”</p>
+              <div>
+                <span class="block font-semibold text-lap-ink-900" data-lo="ທ້າວ ບຸນລ້ຽງ ທ." data-en="Mr. Bounliang T.">ທ້າວ ບຸນລ້ຽງ ທ.</span>
+                <span class="text-sm text-lap-ink-600" data-lo="ລູກຄ້າປະກັນໄພເງິນກູ້ · ສະຫວັນນະເຂດ" data-en="Loan Insurance · Savannakhet">ລູກຄ້າປະກັນໄພເງິນກູ້ · ສະຫວັນນະເຂດ</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-carousel-slide class="w-full shrink-0 px-1">
+          <div class="bg-white border border-lap-border rounded-3xl p-6 md:p-10 grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+            <div class="md:col-span-3">
+              <div class="aspect-square rounded-2xl bg-lap-primary-50 flex items-center justify-center text-3xl font-bold text-lap-primary-700">ອ</div>
+              <span class="lap-pill mt-3 inline-flex"><i data-lucide="badge-check" class="w-3.5 h-3.5"></i><span data-lo="[ຕົວຢ່າງ]" data-en="[placeholder]">[ຕົວຢ່າງ]</span></span>
+            </div>
+            <div class="md:col-span-9">
+              <i data-lucide="quote" class="w-8 h-8 text-lap-primary-500 mb-3"></i>
+              <p class="text-lg md:text-xl text-lap-ink-900 leading-relaxed mb-4" data-lo="“ໃນຖານະທຸລະກິດກໍ່ສ້າງ ພວກເຮົາຕ້ອງການຄູ່ຄ້າທີ່ເຂົ້າໃຈໂຄງການ — LAP ສະໜອງສິ່ງນັ້ນ.”" data-en="“As a construction business, we needed a partner who understood projects — LAP delivered.”">“ໃນຖານະທຸລະກິດກໍ່ສ້າງ ພວກເຮົາຕ້ອງການຄູ່ຄ້າທີ່ເຂົ້າໃຈໂຄງການ — LAP ສະໜອງສິ່ງນັ້ນ.”</p>
+              <div>
+                <span class="block font-semibold text-lap-ink-900" data-lo="ວິສາຫະກິດ ອານຸບານ" data-en="Anouban Construction Co.">ວິສາຫະກິດ ອານຸບານ</span>
+                <span class="text-sm text-lap-ink-600" data-lo="ປະກັນໄພການກໍ່ສ້າງ · ຈຳປາສັກ" data-en="Construction Insurance · Champasak">ປະກັນໄພການກໍ່ສ້າງ · ຈຳປາສັກ</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="flex justify-center gap-2 mt-6" role="tablist" aria-label="Slide pagination">
+        <button data-carousel-dot class="w-2.5 h-2.5 rounded-full bg-lap-border data-[current=true]:bg-lap-primary-700 transition-colors" aria-label="Slide 1"></button>
+        <button data-carousel-dot class="w-2.5 h-2.5 rounded-full bg-lap-border data-[current=true]:bg-lap-primary-700 transition-colors" aria-label="Slide 2"></button>
+        <button data-carousel-dot class="w-2.5 h-2.5 rounded-full bg-lap-border data-[current=true]:bg-lap-primary-700 transition-colors" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== CTA BAND ================== -->
+<section class="py-16 md:py-20">
+  <div class="lap-container">
+    <div class="relative overflow-hidden rounded-[28px] bg-lap-primary-700 text-white p-8 md:p-14">
+      <!-- ornament -->
+      <svg class="absolute -right-20 -bottom-20 w-80 h-80 opacity-20" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="100" cy="100" r="50" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="100" cy="100" r="20" fill="white"/>
+      </svg>
+      <div class="relative grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+        <div class="md:col-span-7">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wider text-lap-primary-50/80 mb-3" data-lo="ຕ້ອງການຄຳແນະນຳ?" data-en="Need advice?">ຕ້ອງການຄຳແນະນຳ?</span>
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight" data-lo="ໃຫ້ພວກເຮົາຊ່ວຍເລືອກປະກັນໄພທີ່ເໝາະກັບທ່ານ." data-en="Let us help you choose the right cover.">ໃຫ້ພວກເຮົາຊ່ວຍເລືອກປະກັນໄພທີ່ເໝາະກັບທ່ານ.</h2>
+        </div>
+        <div class="md:col-span-5 flex flex-col sm:flex-row md:justify-end gap-3">
+          <a href="tel:0309029999" class="lap-btn lap-btn-primary justify-center"><i data-lucide="phone" class="w-4 h-4"></i><span class="tabular-nums">030 902 9999</span></a>
+          <a href="mailto:Contract@lap.com.la" class="lap-btn justify-center bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full"><i data-lucide="mail" class="w-4 h-4"></i> Contract@lap.com.la</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== FOOTER ================== -->
+<footer class="bg-lap-primary-900 text-white pt-16 pb-8">
+  <div class="lap-container grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-2 mb-4">
+        <img src="/public/img/lap-logo.png" alt="Lanexang Assurance logo" class="w-11 h-11" />
+        <span class="font-bold leading-tight">Lanexang Assurance<br /><span class="text-xs font-normal opacity-70">Public Company Limited</span></span>
+      </div>
+      <p class="text-sm text-white/70 max-w-prose mb-6" data-lo="ບໍລິສັດປະກັນໄພທີ່ໄວ້ວາງໃຈໄດ້ ໃຫ້ບໍລິການລູກຄ້າຂອງ ສປປ ລາວ ຕັ້ງແຕ່ປີ 2010." data-en="A trusted insurance company serving customers in the Lao PDR since 2010.">ບໍລິສັດປະກັນໄພທີ່ໄວ້ວາງໃຈໄດ້ ໃຫ້ບໍລິການລູກຄ້າຂອງ ສປປ ລາວ ຕັ້ງແຕ່ປີ 2010.</p>
+      <div class="flex items-center gap-3">
+        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="YouTube"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="TikTok"><i data-lucide="music-2" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+
+    <nav class="md:col-span-3" aria-label="Footer">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4" data-lo="ລິ້ງດ່ວນ" data-en="Quick Links">ລິ້ງດ່ວນ</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a class="hover:text-lap-accent-500" href="index.html" data-lo="ໜ້າຫຼັກ" data-en="Home">ໜ້າຫຼັກ</a></li>
+        <li><a class="hover:text-lap-accent-500" href="products/eco.html" data-lo="ປະກັນໄພລົດ" data-en="Vehicle">ປະກັນໄພລົດ</a></li>
+        <li><a class="hover:text-lap-accent-500" href="products/loan.html" data-lo="ປະກັນໄພເງິນກູ້" data-en="Loan">ປະກັນໄພເງິນກູ້</a></li>
+        <li><a class="hover:text-lap-accent-500" href="about/history.html" data-lo="ປະຫວັດ" data-en="History">ປະຫວັດ</a></li>
+        <li><a class="hover:text-lap-accent-500" href="downloads.html" data-lo="ດາວໂຫລດ" data-en="Downloads">ດາວໂຫລດ</a></li>
+        <li><a class="hover:text-lap-accent-500" href="contact.html" data-lo="ຕິດຕໍ່" data-en="Contact">ຕິດຕໍ່</a></li>
+      </ul>
+    </nav>
+
+    <div class="md:col-span-4">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4" data-lo="ຕິດຕໍ່ພວກເຮົາ" data-en="Contact">ຕິດຕໍ່ພວກເຮົາ</h3>
+      <address class="not-italic text-sm space-y-3 text-white/80">
+        <div class="flex gap-3"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-lap-accent-500"></i><span data-lo="ຊັ້ນ 2, ອາຄານທະນາຄານ MBL, ຖະໜົນ ໄກສອນ ພົມວິຫານ, ບ້ານ ໂພນໄຊ, ເມືອງ ສີສັດຕະນາກ, ນະຄອນຫລວງວຽງຈັນ" data-en="Level 2, MBL Bank Building, Kaisone Phomvihane Rd, Phonsai Village, Sisattanak District, Vientiane">ຊັ້ນ 2, ອາຄານທະນາຄານ MBL, ຖະໜົນ ໄກສອນ ພົມວິຫານ, ບ້ານ ໂພນໄຊ, ເມືອງ ສີສັດຕະນາກ, ນະຄອນຫລວງວຽງຈັນ</span></div>
+        <div class="flex gap-3"><i data-lucide="mail" class="w-4 h-4 mt-0.5 shrink-0 text-lap-accent-500"></i><a href="mailto:Contract@lap.com.la" class="hover:text-lap-accent-500">Contract@lap.com.la</a></div>
+        <div class="flex gap-3"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0 text-lap-accent-500"></i><div><a href="tel:0309029999" class="hover:text-lap-accent-500 tabular-nums block">030 902 9999</a><a href="tel:02098556666" class="hover:text-lap-accent-500 tabular-nums block">020 9855 6666</a></div></div>
+        <div class="flex items-center gap-3 pt-1"><span class="lap-pill !bg-lap-accent-500/15 !text-lap-accent-500 !border-lap-accent-500/30"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-lo="ບໍລິການ 24/7" data-en="24/7 service">ບໍລິການ 24/7</span></span><a href="tel:1819" class="text-lap-danger-600 font-bold tabular-nums" style="color:#FCA5A5">☎ 1819</a></div>
+      </address>
+    </div>
+  </div>
+
+  <div class="lap-container mt-12 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
+    <span data-lo="© 2010–2025 ບໍລິສັດ ລ້ານຊ້າງປະກັນໄພ ມະຫາຊົນ ຈຳກັດ · ໃບອະນຸຍາດເລກທີ […]" data-en="© 2010–2025 Lanexang Assurance Public Co., Ltd. · License No. […]">© 2010–2025 ບໍລິສັດ ລ້ານຊ້າງປະກັນໄພ ມະຫາຊົນ ຈຳກັດ · ໃບອະນຸຍາດເລກທີ […]</span>
+    <span class="flex gap-4"><a href="#" class="hover:text-white" data-lo="ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ" data-en="Privacy">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</a><a href="#" class="hover:text-white" data-lo="ເງື່ອນໄຂ" data-en="Terms">ເງື່ອນໄຂ</a></span>
+  </div>
+</footer>
+
+<!-- ================== STICKY EMERGENCY (mobile) ================== -->
+<a href="tel:1819" class="lap-emergency-floating" aria-label="Emergency hotline 1819">
+  <i data-lucide="phone" class="w-5 h-5"></i>
+  <span data-lo="ແຈ້ງເຫດ 1819" data-en="Hotline 1819">ແຈ້ງເຫດ 1819</span>
+</a>
+
+<!-- Tweaks panel mount -->
+<div id="tweaks-root"></div>
+
+<script src="assets/js/main.js" defer></script>
+<script>
+  // Render lucide icons after DOM loads.
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) lucide.createIcons();
+  });
+</script>
+<script type="text/babel" src="assets/js/tweaks.jsx"></script>
+
+</body>
+</html>

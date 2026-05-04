@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="lo" data-lang="lo">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · LAP</title>
+<link rel="icon" type="image/png" href="/public/img/lap-logo.png" />
+<link rel="apple-touch-icon" href="/public/img/lap-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Lao:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tw-config.js"></script>
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  [data-toast]{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(150%);
+    background:var(--lap-primary-700);color:#fff;padding:14px 22px;border-radius:14px;
+    box-shadow:0 12px 40px -12px rgba(2,144,218,0.5);font-weight:600;z-index:90;
+    transition:transform 250ms ease;display:flex;align-items:center;gap:10px}
+  [data-toast].is-visible{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body class="bg-lap-surface-50 text-lap-ink-900" data-depth="0">
+<div data-partial="header"></div>
+
+<main>
+  <div class="lap-container pt-6 pb-2 text-sm text-lap-ink-600 flex items-center gap-2">
+    <a href="index.html" class="hover:text-lap-primary-700" data-lo="ໜ້າຫຼັກ" data-en="Home">ໜ້າຫຼັກ</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-lap-ink-900" data-lo="ຕິດຕໍ່" data-en="Contact">ຕິດຕໍ່</span>
+  </div>
+
+  <section class="py-10 md:py-16">
+    <div class="lap-container max-w-3xl">
+      <span class="lap-eyebrow" data-lo="ຕິດຕໍ່ພວກເຮົາ" data-en="Get in touch">ຕິດຕໍ່ພວກເຮົາ</span>
+      <h1 class="lap-h1 mt-4 mb-5" data-lo="ຕິດຕໍ່ພວກເຮົາ" data-en="Contact us">ຕິດຕໍ່ພວກເຮົາ</h1>
+      <p class="text-lg text-lap-ink-600" data-lo="ມີຄຳຖາມ ຫລື ຕ້ອງການຄຳແນະນຳ? ສົ່ງຂໍ້ຄວາມໃຫ້ພວກເຮົາ ຫຼື ໂທສາຍດ່ວນ 1819." data-en="Got a question or need advice? Send us a message or call the 1819 hotline.">ມີຄຳຖາມ ຫລື ຕ້ອງການຄຳແນະນຳ? ສົ່ງຂໍ້ຄວາມໃຫ້ພວກເຮົາ ຫຼື ໂທສາຍດ່ວນ 1819.</p>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="lap-container grid lg:grid-cols-12 gap-10">
+      <!-- Contact info -->
+      <aside class="lg:col-span-5 space-y-5">
+        <div class="lap-card p-6">
+          <span class="inline-flex w-11 h-11 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-4"><i data-lucide="map-pin" class="w-5 h-5"></i></span>
+          <h3 class="lap-h3 mb-2" data-lo="ສຳນັກງານໃຫຍ່" data-en="Head office">ສຳນັກງານໃຫຍ່</h3>
+          <p class="text-sm text-lap-ink-600 leading-relaxed" data-lo="ຊັ້ນ 2, ອາຄານທະນາຄານ MBL, ຖະໜົນ ໄກສອນ ພົມວິຫານ, ບ້ານ ໂພນໄຊ, ເມືອງ ສີສັດຕະນາກ, ນະຄອນຫລວງວຽງຈັນ" data-en="Level 2, MBL Bank Building, Kaisone Phomvihane Rd, Phonsai Village, Sisattanak District, Vientiane">ຊັ້ນ 2, ອາຄານທະນາຄານ MBL, ຖະໜົນ ໄກສອນ ພົມວິຫານ, ບ້ານ ໂພນໄຊ, ເມືອງ ສີສັດຕະນາກ, ນະຄອນຫລວງວຽງຈັນ</p>
+        </div>
+        <div class="lap-card p-6">
+          <span class="inline-flex w-11 h-11 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-4"><i data-lucide="phone" class="w-5 h-5"></i></span>
+          <h3 class="lap-h3 mb-2" data-lo="ໂທ" data-en="Phone">ໂທ</h3>
+          <ul class="text-sm space-y-1.5">
+            <li><a href="tel:0309029999" class="font-semibold tabular-nums hover:text-lap-primary-700">030 902 9999</a></li>
+            <li><a href="tel:02098556666" class="font-semibold tabular-nums hover:text-lap-primary-700">020 9855 6666</a></li>
+            <li class="pt-2 border-t border-lap-border mt-2 flex items-center gap-2"><span class="lap-pill !bg-lap-danger-600/10 !text-lap-danger-600 !border-lap-danger-600/30">24/7</span><a href="tel:1819" class="font-bold text-lap-danger-600 tabular-nums">☎ 1819</a></li>
+          </ul>
+        </div>
+        <div class="lap-card p-6">
+          <span class="inline-flex w-11 h-11 rounded-xl bg-lap-primary-50 text-lap-primary-700 items-center justify-center mb-4"><i data-lucide="mail" class="w-5 h-5"></i></span>
+          <h3 class="lap-h3 mb-2" data-lo="ອີເມວ" data-en="Email">ອີເມວ</h3>
+          <a href="mailto:Contract@lap.com.la" class="text-sm font-semibold text-lap-primary-700 hover:underline">Contract@lap.com.la</a>
+        </div>
+      </aside>
+
+      <!-- Form -->
+      <div class="lg:col-span-7">
+        <form data-contact-form class="lap-card p-6 md:p-8 space-y-5" novalidate>
+          <h2 class="lap-h2 mb-2" data-lo="ສົ່ງຂໍ້ຄວາມ" data-en="Send a message">ສົ່ງຂໍ້ຄວາມ</h2>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2" data-lo="ຊື່" data-en="Name">ຊື່</span>
+              <input required name="name" type="text" class="lap-input" data-lo-placeholder="ຊື່ ແລະ ນາມສະກຸນ" data-en-placeholder="Full name" placeholder="ຊື່ ແລະ ນາມສະກຸນ" />
+            </label>
+            <label class="block">
+              <span class="block text-sm font-semibold mb-2" data-lo="ເບີໂທ" data-en="Phone">ເບີໂທ</span>
+              <input required name="phone" type="tel" class="lap-input" data-lo-placeholder="020 …" data-en-placeholder="020 …" placeholder="020 …" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="block text-sm font-semibold mb-2" data-lo="ອີເມວ" data-en="Email">ອີເມວ</span>
+            <input name="email" type="email" class="lap-input" data-lo-placeholder="you@example.com" data-en-placeholder="you@example.com" placeholder="you@example.com" />
+          </label>
+          <label class="block">
+            <span class="block text-sm font-semibold mb-2" data-lo="ຫົວຂໍ້" data-en="Topic">ຫົວຂໍ້</span>
+            <select name="topic" class="lap-input">
+              <option data-lo="ປະກັນໄພລົດ" data-en="Vehicle Insurance">ປະກັນໄພລົດ</option>
+              <option data-lo="ປະກັນໄພເງິນກູ້" data-en="Loan Insurance">ປະກັນໄພເງິນກູ້</option>
+              <option data-lo="ປະກັນໄພບຸກຄົນທີ່ສາມ" data-en="Third-Party">ປະກັນໄພບຸກຄົນທີ່ສາມ</option>
+              <option data-lo="ສິນທົດແທນ" data-en="Claim">ສິນທົດແທນ</option>
+              <option data-lo="ອື່ນໆ" data-en="Other">ອື່ນໆ</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="block text-sm font-semibold mb-2" data-lo="ຂໍ້ຄວາມ" data-en="Message">ຂໍ້ຄວາມ</span>
+            <textarea required name="message" rows="5" class="lap-input" data-lo-placeholder="ບອກພວກເຮົາວ່າພວກເຮົາສາມາດຊ່ວຍຫຍັງ..." data-en-placeholder="Tell us how we can help..." placeholder="ບອກພວກເຮົາວ່າພວກເຮົາສາມາດຊ່ວຍຫຍັງ..."></textarea>
+          </label>
+          <button type="submit" class="lap-btn lap-btn-primary"><span data-lo="ສົ່ງຂໍ້ຄວາມ" data-en="Send message">ສົ່ງຂໍ້ຄວາມ</span> <i data-lucide="send" class="w-4 h-4"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-toast><i data-lucide="check-circle-2" class="w-5 h-5"></i><span data-lo="ສົ່ງສຳເລັດແລ້ວ — ພວກເຮົາຈະຕິດຕໍ່ກັບໄປ." data-en="Sent! We'll be in touch soon.">ສົ່ງສຳເລັດແລ້ວ — ພວກເຮົາຈະຕິດຕໍ່ກັບໄປ.</span></div>
+
+<div data-partial="footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });</script>
+</body>
+</html>

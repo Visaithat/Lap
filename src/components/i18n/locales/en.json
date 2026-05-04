@@ -1,0 +1,24 @@
+{
+  "footer": {
+    "tagline": "A trusted insurance company serving customers in the Lao PDR since 2010.",
+    "quickLinks": "Quick Links",
+    "links": {
+      "home": "Home",
+      "vehicle": "Vehicle",
+      "loan": "Loan",
+      "history": "History",
+      "downloads": "Downloads",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Level 2, MBL Bank Building, Kaisone Phomvihane Rd, Phonsai Village, Sisattanak District, Vientiane",
+      "service247": "24/7 service"
+    },
+    "legal": {
+      "copyright": "© 2010–2025 Lanexang Assurance Public Co., Ltd.",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  }
+}

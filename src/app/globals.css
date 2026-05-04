@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* Tailwind 4 native theme — encodes the LAP palette as
+   custom-property tokens so utilities like `bg-lap-primary-700`,
+   `text-lap-ink-900`, `shadow-lap-rest`, and `rounded-lap-card`
+   work everywhere. We keep the same names the static site used
+   (see lap/assets/js/tw-config.js) for a 1:1 port.
+
+   Note: The brief mentions `tailwind.config.ts` as one option
+   and Tailwind 4 `@theme` as the other. We chose `@theme` because
+   that is what the create-next-app scaffold gave us with Tailwind 4. */
+@theme {
+  --color-lap-primary-900: #014C75;
+  --color-lap-primary-700: #0290DA;
+  --color-lap-primary-500: #36A9E1;
+  --color-lap-primary-50:  #E6F4FC;
+
+  --color-lap-accent-500: #FFC20F;
+  --color-lap-accent-600: #E0A800;
+  --color-lap-accent-50:  #FFF7DB;
+
+  --color-lap-danger-600: #DC2626;
+  --color-lap-danger-700: #B91C1C;
+
+  --color-lap-ink-900: #0F172A;
+  --color-lap-ink-700: #1E293B;
+  --color-lap-ink-600: #475569;
+  --color-lap-ink-400: #94A3B8;
+
+  --color-lap-surface-0:  #FFFFFF;
+  --color-lap-surface-50: #FFFFFF;
+  --color-lap-border:     #E2E8F0;
+
+  --shadow-lap-rest:  0 4px 20px -4px rgba(2, 144, 218, 0.12);
+  --shadow-lap-hover: 0 10px 30px -8px rgba(2, 144, 218, 0.18);
+
+  --radius-lap-card: 16px;
+
+  --font-sans: var(--font-sans), var(--font-lao), 'Inter', 'Noto Sans Lao', system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+@import "../styles/tokens.css";

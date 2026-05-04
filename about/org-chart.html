@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="lo" data-lang="lo">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Organization Chart · LAP</title>
+<link rel="icon" type="image/png" href="/public/img/lap-logo.png" />
+<link rel="apple-touch-icon" href="/public/img/lap-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Lao:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/tw-config.js"></script>
+<link rel="stylesheet" href="../assets/css/tokens.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+.org-node{background:#fff;border:1px solid var(--lap-border);border-radius:14px;padding:14px 18px;
+  text-align:center;box-shadow:var(--lap-shadow-rest);min-width:160px;display:inline-flex;flex-direction:column;gap:4px}
+.org-node .t{font-weight:700;color:var(--lap-primary-900);font-size:14px;line-height:1.2}
+.org-node .r{font-size:12px;color:var(--lap-ink-600)}
+.org-node.lvl-1{background:var(--lap-primary-700);color:#fff;border-color:transparent}
+.org-node.lvl-1 .t{color:#fff}
+.org-node.lvl-1 .r{color:rgba(255,255,255,0.8)}
+.org-tree ul{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding-top:32px;position:relative}
+.org-tree ul::before{content:'';position:absolute;top:0;left:50%;width:1px;height:32px;background:var(--lap-border)}
+.org-tree li{position:relative;list-style:none;display:flex;flex-direction:column;align-items:center}
+.org-tree li::before{content:'';position:absolute;top:-32px;left:50%;width:1px;height:32px;background:var(--lap-border)}
+.org-tree > li > ul::after{content:'';position:absolute;top:0;left:5%;right:5%;height:1px;background:var(--lap-border)}
+@media(max-width:768px){
+  .org-tree ul{flex-direction:column;align-items:center;gap:12px}
+  .org-tree ul::before,.org-tree li::before,.org-tree > li > ul::after{display:none}
+}
+</style>
+</head>
+<body class="bg-lap-surface-50 text-lap-ink-900" data-depth="1">
+<div data-partial="header"></div>
+
+<main>
+  <div class="lap-container pt-6 pb-2 text-sm text-lap-ink-600 flex items-center gap-2">
+    <a href="../index.html" class="hover:text-lap-primary-700" data-lo="ໜ້າຫຼັກ" data-en="Home">ໜ້າຫຼັກ</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-lap-ink-900" data-lo="ໂຄງສ້າງອົງກອນ" data-en="Organization Chart">ໂຄງສ້າງອົງກອນ</span>
+  </div>
+
+  <section class="py-10 md:py-16">
+    <div class="lap-container max-w-3xl">
+      <span class="lap-eyebrow" data-lo="ໂຄງສ້າງ" data-en="Structure">ໂຄງສ້າງ</span>
+      <h1 class="lap-h1 mt-4 mb-5" data-lo="ໂຄງສ້າງອົງກອນ" data-en="Organization Chart">ໂຄງສ້າງອົງກອນ</h1>
+      <p class="text-lg text-lap-ink-600" data-lo="ການແບ່ງໜ້າທີ່ ແລະ ຄວາມຮັບຜິດຊອບໃນ LAP." data-en="How responsibilities are split across LAP.">ການແບ່ງໜ້າທີ່ ແລະ ຄວາມຮັບຜິດຊອບໃນ LAP.</p>
+      <div class="mt-6 flex items-start gap-3 p-4 rounded-xl bg-lap-accent-50 border border-lap-accent-500/30 text-sm">
+        <i data-lucide="info" class="w-5 h-5 text-lap-accent-600 mt-0.5 shrink-0"></i>
+        <span class="font-mono text-xs">[placeholder structure — confirm with client before launch]</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="lap-container">
+      <div class="overflow-x-auto pb-4">
+        <ul class="org-tree min-w-[700px] md:min-w-0">
+          <li>
+            <div class="org-node lvl-1"><span class="t" data-lo="ສະພາບໍລິຫານ" data-en="Board of Directors">ສະພາບໍລິຫານ</span><span class="r" data-lo="ຜູ້ກຳກັບ" data-en="Governance">ຜູ້ກຳກັບ</span></div>
+            <ul>
+              <li>
+                <div class="org-node"><span class="t" data-lo="ຜູ້ອຳນວຍການໃຫຍ່" data-en="General Director">ຜູ້ອຳນວຍການໃຫຍ່</span><span class="r" data-lo="CEO" data-en="CEO">CEO</span></div>
+                <ul>
+                  <li><div class="org-node"><span class="t" data-lo="ການຂາຍ" data-en="Sales">ການຂາຍ</span><span class="r" data-lo="3 ທີມ" data-en="3 teams">3 ທີມ</span></div></li>
+                  <li><div class="org-node"><span class="t" data-lo="ການຮັບປະກັນໄພ" data-en="Underwriting">ການຮັບປະກັນໄພ</span><span class="r" data-lo="2 ທີມ" data-en="2 teams">2 ທີມ</span></div></li>
+                  <li><div class="org-node"><span class="t" data-lo="ສິນທົດແທນ" data-en="Claims">ສິນທົດແທນ</span><span class="r" data-lo="2 ທີມ" data-en="2 teams">2 ທີມ</span></div></li>
+                  <li><div class="org-node"><span class="t" data-lo="ການເງິນ" data-en="Finance">ການເງິນ</span><span class="r" data-lo="1 ທີມ" data-en="1 team">1 ທີມ</span></div></li>
+                  <li><div class="org-node"><span class="t" data-lo="ບໍລິການລູກຄ້າ" data-en="Customer Care">ບໍລິການລູກຄ້າ</span><span class="r" data-lo="2 ທີມ" data-en="2 teams">2 ທີມ</span></div></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-partial="footer"></div>
+<script src="../assets/js/partials.js"></script>
+<script src="../assets/js/main.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });</script>
+</body>
+</html>

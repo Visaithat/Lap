@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="lo" data-lang="lo">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login · LAP</title>
+<link rel="icon" type="image/png" href="/public/img/lap-logo.png" />
+<link rel="apple-touch-icon" href="/public/img/lap-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Lao:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tw-config.js"></script>
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-lap-surface-50 text-lap-ink-900" data-depth="0">
+<div data-partial="header"></div>
+
+<main class="py-12 md:py-20">
+  <div class="lap-container max-w-md">
+    <div class="lap-card p-8">
+      <div class="text-center mb-8">
+        <img src="/public/img/lap-logo.png" alt="Lanexang Assurance logo" class="mx-auto w-16 h-16 mb-5" />
+        <h1 class="lap-h2 mb-2" data-lo="ເຂົ້າສູ່ລະບົບ" data-en="Sign in">ເຂົ້າສູ່ລະບົບ</h1>
+        <p class="text-sm text-lap-ink-600" data-lo="ເຂົ້າເຖິງກົມທະບຽນ ແລະ ການຮຽກຮ້ອງຄ່າສິນທົດແທນ" data-en="Access your policies and claims">ເຂົ້າເຖິງກົມທະບຽນ ແລະ ການຮຽກຮ້ອງຄ່າສິນທົດແທນ</p>
+      </div>
+
+      <form data-login-form class="space-y-5" novalidate>
+        <label class="block">
+          <span class="block text-sm font-semibold mb-2" data-lo="ອີເມວ ຫຼື ເບີໂທ" data-en="Email or phone">ອີເມວ ຫຼື ເບີໂທ</span>
+          <input required name="user" type="text" class="lap-input" data-lo-placeholder="you@example.com" data-en-placeholder="you@example.com" placeholder="you@example.com" />
+        </label>
+        <label class="block">
+          <span class="flex items-center justify-between mb-2"><span class="text-sm font-semibold" data-lo="ລະຫັດຜ່ານ" data-en="Password">ລະຫັດຜ່ານ</span><a href="#" class="text-xs font-medium text-lap-primary-700 hover:underline" data-lo="ລືມລະຫັດ?" data-en="Forgot?">ລືມລະຫັດ?</a></span>
+          <input required name="password" type="password" class="lap-input" placeholder="••••••••" />
+        </label>
+        <label class="flex items-center gap-2 text-sm text-lap-ink-600">
+          <input type="checkbox" class="rounded border-lap-border w-4 h-4 text-lap-primary-700" />
+          <span data-lo="ຈົດຈຳຂ້ອຍ" data-en="Remember me">ຈົດຈຳຂ້ອຍ</span>
+        </label>
+        <button type="submit" class="lap-btn lap-btn-primary w-full justify-center"><span data-lo="ເຂົ້າສູ່ລະບົບ" data-en="Sign in">ເຂົ້າສູ່ລະບົບ</span> <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </form>
+
+      <div class="my-6 flex items-center gap-3 text-xs text-lap-ink-400 font-mono">
+        <span class="flex-1 h-px bg-lap-border"></span><span>OR</span><span class="flex-1 h-px bg-lap-border"></span>
+      </div>
+
+      <p class="text-center text-sm text-lap-ink-600">
+        <span data-lo="ບໍ່ມີບັນຊີ?" data-en="No account?">ບໍ່ມີບັນຊີ?</span>
+        <a href="contact.html" class="font-semibold text-lap-primary-700 hover:underline ml-1" data-lo="ຕິດຕໍ່ສາຂາ" data-en="Contact a branch">ຕິດຕໍ່ສາຂາ</a>
+      </p>
+
+      <p class="mt-6 text-center text-xs text-lap-ink-400 font-mono">[demo — no real authentication]</p>
+    </div>
+  </div>
+</main>
+
+<div data-partial="footer"></div>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });</script>
+</body>
+</html>
