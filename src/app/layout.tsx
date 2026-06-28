@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_Lao, JetBrains_Mono } from 'next/font/google';
+import { PostHogProvider } from '@/components/analytics';
 import { LanguageProvider } from '@/components/i18n';
 import { Header, Footer, EmergencyHotline } from '@/components/layout';
 import { ToastProvider } from '@/components/ui';
@@ -46,14 +47,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
-        <LanguageProvider>
-          <ToastProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <EmergencyHotline />
-          </ToastProvider>
-        </LanguageProvider>
+        <PostHogProvider>
+          <LanguageProvider>
+            <ToastProvider>
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <EmergencyHotline />
+            </ToastProvider>
+          </LanguageProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
